@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- ERROR intencional: falta viewport para responsive real -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Práctica 2 — Auditoría Bootstrap</title>
 
@@ -17,99 +17,95 @@
 
   <!-- NAVBAR (con errores intencionales) -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!-- ERROR intencional: falta container (o container-fluid) -->
+    <!-- agregar container  -->
+    <div class="container">
     <a class="navbar-brand" href="#">Mi sitio</a>
-
+    
     <!-- ERROR intencional: el toggler apunta a un id que NO existe -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- ERROR intencional: este id NO coincide con data-bs-target -->
-    <div class="collapse navbar-collapse" id="menu">
+    <div class="collapse navbar-collapse" id="menu-principal">
       <ul class="navbar-nav ms-auto">
         <!-- ERROR intencional: href="#" sin funcionalidad -->
-        <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre-mi">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
       </ul>
+    </div>
     </div>
   </nav>
 
   <!-- HERO (poco spacing, jerarquía débil a propósito) -->
-  <section class="bg-light">
-    <div>
-      <h1>Bienvenido</h1>
-      <p>Esta landing tiene errores. Tu trabajo es auditarlos y corregirlos.</p>
+  <section class="bg-light text-center py-5 mb-4">
+    <div class="container">
+      <h1 class="display-4">Bienvenido</h1>
+      <p class="lead">Esta landing ya no contiene errores. Tu trabajo es auditarlos y corregirlos.</p>
 
       <!-- Botón sin acción real -->
-      <a href="#" class="btn btn-primary">Agendar</a>
+       <a href="#contacto" class="btn btn-primary">Agendar</a>
     </div>
   </section>
 
   <!-- SOBRE MI / PERFIL (GRID mal distribuido 5 + 8) -->
-  <section id="sobre-mi">
+  <section id="sobre-mi" class="py-5">
     <div class="container">
-      <h2>Sobre mí</h2>
-
-      <div class="row">
+      <h2 class="mb-4">Sobre mí</h2>
+      <div class="row g-4 align-items-center">
         <!-- ERROR intencional: 5 + 8 = 13 (rompe el sistema de 12) -->
-        <div class="col-md-5">
+        <div class="col-12 col-md-4 col-lg-3 text-center">
           <!-- ERROR intencional: imagen sin img-fluid -->
-          <img src="https://via.placeholder.com/260" alt="Foto de perfil" class="rounded-circle">
+          <img src="imagenes/Foto2.jpg" class="img-fluid rounded-circle" width="120" alt="Foto">
         </div>
-
-        <div class="col-md-8">
-          <p>
-            Texto descriptivo. Aquí debe verse una jerarquía visual clara:
-            imagen → título → texto → acción.
-          </p>
+        <div class="col-12 col-md-8 col-lg-9">
+          <p>Se han hecho ciertas correcciones en el código para mejorar la estructura y funcionalidad de la página en la seccion de Hero.</p>
 
           <!-- Link sin objetivo -->
-          <a href="#" class="btn btn-outline-dark">Ver CV</a>
+          <a href="curriculum/CV_Gladys.pdf" class="btn btn-outline-dark" download>Ver CV</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROYECTOS (cards sin h-100, sin jerarquía, sin grid responsive) -->
-  <section id="proyectos" class="bg-light">
+  <section id="proyectos" class="bg-light py-5">
     <div class="container">
-      <h2>Proyectos</h2>
-
-      <div class="row">
+      <h2 class="mb-4">Proyectos</h2>
+      <div class="row g-4">
         <!-- ERROR intencional: solo col-md-4 (sin estrategia col-12 / col-lg-*) -->
-        <div class="col-md-4">
-          <div class="card">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow-sm h-100">
             <!-- ERROR intencional: imagen sin clase responsive -->
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Proyecto 1">
-            <div class="card-body">
+            <img src="imagenes/Ziggy4.png" class="card-img-top img-fluid mb-3" alt="Proyecto 1">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">Proyecto 1</h5>
-              <p class="card-text">Descripción corta.</p>
+              <p class="card-text">Card mejorada y funcional con jerarquía y diseño responsivo.</p>
               <!-- ERROR intencional: href sin funcionalidad -->
-              <a href="#" class="btn btn-primary">Ver</a>
+              <a href="#sobre-mi" class="btn btn-primary mt-auto">Ver</a>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Proyecto 2">
-            <div class="card-body">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow-sm h-100">
+            <img src="imagenes/Peirol3.png" class="card-img-top img-fluid mb-3" alt="Proyecto 2">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">Proyecto 2</h5>
-              <p class="card-text">Descripción corta.</p>
-              <a href="#" class="btn btn-primary">Ver</a>
+              <p class="card-text">Card mejorada y funcional con jerarquía y diseño responsivo.</p>
+              <a href="#sobre-mi" class="btn btn-primary mt-auto">Ver</a>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Proyecto 3">
-            <div class="card-body">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow-sm h-100">
+            <img src="imagenes/DonaTec3.png" class="card-img-top img-fluid mb-3" alt="Proyecto 3">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">Proyecto 3</h5>
-              <p class="card-text">Descripción corta.</p>
-              <a href="#" class="btn btn-primary">Ver</a>
+              <p class="card-text">Card mejorada y funcional con jerarquía y diseño responsivo.</p>
+              <a href="#sobre-mi" class="btn btn-primary mt-auto">Ver</a>
             </div>
           </div>
         </div>
@@ -119,10 +115,9 @@
   </section>
 
   <!-- CONTACTO (id existe, pero navbar NO navega aquí por href #) -->
-  <section id="contacto">
+  <section id="contacto" class="py-5">
     <div class="container">
-      <h2>Contacto</h2>
-
+      <h2 class="mb-4">Contacto</h2>
       <form>
         <div class="mb-3">
           <input type="text" class="form-control" placeholder="Nombre">
@@ -135,7 +130,7 @@
     </div>
   </section>
 
-  <footer class="bg-dark text-white text-center">
+  <footer class="bg-dark text-white text-center py-3">
     <p>© 2026</p>
   </footer>
 
